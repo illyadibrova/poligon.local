@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Blog\Admin;
 
+use Illuminate\Support\Str;
 use App\Http\Requests\BlogCategoryCreateRequest;
 use App\Http\Requests\BlogCategoryUpdateRequest;
 use App\Repositories\BlogCategoryRepository;
 use App\Models\BlogCategory;
+
 
 /**
  * Управление категориями блога
@@ -64,7 +66,7 @@ class CategoryController extends BaseController
     {
         $data = $request->input();
         if (empty($data['slug'])) {
-            $data['slug'] = str_slug($data['title']);
+            $data['slug'] = Str::slug($data['title']);
         }
 
         // Создаст объект и добавит в БД
@@ -115,7 +117,7 @@ class CategoryController extends BaseController
 
         $data = $request->all();
         if (empty($data['slug'])) {
-            $data['slug'] = str_slug($data['title']);
+            $data['slug'] = Str::slug($data['title']);
         }
 
         $result = $item->update($data);
