@@ -24,6 +24,11 @@ Route::group(['namespace' => 'Blog', 'prefix' => 'blog'], function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::group(['prefix' => 'digging_deeper',], function () {
+    Route::get('collections', 'DiggingDeeperController@collections')
+        ->name('digging_deeper.collections');
+});
+
 //> Админка блога
 $groupData = [
     'namespace' => 'Blog\Admin',
