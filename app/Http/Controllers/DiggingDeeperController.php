@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class DiggingDeeperController extends Controller
 {
     /**
+     *
      *  Базовая информация:
      * @url https://laravel.com/docs/5.8/collections
      *
@@ -19,6 +20,7 @@ class DiggingDeeperController extends Controller
      *
      * Билдер запросов - то с чем можно перепутать коллекции
      * @url https://laravel.com/docs/5.8/queries
+     *
      */
 
     public function collections()
@@ -43,5 +45,6 @@ class DiggingDeeperController extends Controller
 
         $result['first'] = $collection->first();
         $result['last'] = $collection->last();
+
     }
 }
